@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment System</title>
+  <script defer src="app.js"></script>
+  <style>
+    body { font-family: Arial; margin: 20px; }
+    section { margin-bottom: 2em; }
+    input, button { margin: 5px; padding: 5px; }
+    .card { padding: 10px; border: 1px solid #ccc; margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>Appointment Booking System</h1>
+
+  <section>
+    <h2>Select Role</h2>
+    <button onclick="selectRole('student')">Student</button>
+    <button onclick="selectRole('professor')">Professor</button>
+    <p id="selectedRole"></p>
+  </section>
+
+  <section>
+    <h2>Register / Login (<span id="roleLabel">--</span>)</h2>
+    <input type="text" id="name" placeholder="Name" />
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="register()">Register</button>
+    <button onclick="login()">Login</button>
+  </section>
+
+  <section id="studentPanel" style="display:none;">
+    <h2>Available Professors</h2>
+    <div id="professorList"></div>
+
+    <h2>Book Appointment</h2>
+    <input type="text" id="professorId" placeholder="Professor ID" />
+    <input type="datetime-local" id="appointmentTime" />
+    <button onclick="bookAppointment()">Book</button>
+
+    <h2>My Appointments</h2>
+    <button onclick="loadStudentAppointments()">Refresh</button>
+    <div id="studentAppointments"></div>
+  </section>
+
+  <section id="professorPanel" style="display:none;">
+    <h2>My Appointment Requests</h2>
+    <button onclick="loadProfessorAppointments()">Refresh</button>
+    <div id="professorAppointments"></div>
+  </section>
+</body>
+</html>
